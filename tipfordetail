@@ -1,0 +1,21 @@
+1. 502 badgate
+
+if we use bix 0.6.0(3.0.1)nginx have a bug.
+fix it by revise homestead.app
+*revise readble file in vi : ":w !sudo tee %", "L" 
+
+    sudo nano /etc/nginx/sites-enabled/homestead.app
+
+change line fastcgi_pass for
+
+    ...
+    fastcgi_pass unix:/run/php/php7.0-fpm.sock;
+    ...
+
+restart nginx and php7.0-fpm
+
+    sudo service nginx restart
+    sudo service php7.0-fpm reload
+
+
+
