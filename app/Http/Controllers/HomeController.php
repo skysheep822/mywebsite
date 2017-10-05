@@ -4,6 +4,9 @@ class HomeController extends Controller
 {
     public function index()
     {
+        // return view('form');
+
+
         if (\Configer::get('maintain') == 'on') {
             return view('maintain');
         } else {

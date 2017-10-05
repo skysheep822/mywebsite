@@ -2,9 +2,9 @@
 
 if we use bix 0.6.0(3.0.1)nginx have a bug.
 fix it by revise homestead.app
-*revise readble file in vi : ":w !sudo tee %", "L" 
+*revise readble file in vi : ":w !sudo tee %", "L"
 
-    sudo nano /etc/nginx/sites-enabled/homestead.app
+    sudo vi /etc/nginx/sites-enabled/homestead.app
 
 change line fastcgi_pass for
 
@@ -19,3 +19,7 @@ restart nginx and php7.0-fpm
 
 
 
+2. htmlentities() expects parameter to be string, object given
+    I delete this line in layout.blade.php
+     <meta property="og:url" content="{{ url() }}" />
+    and form works,but I don't know why.

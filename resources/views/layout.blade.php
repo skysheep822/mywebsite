@@ -11,7 +11,7 @@
     <meta property="og:title" content="{{ $config['site_title'] }}" />
     <meta property="og:description" content="{{ $config['site_description'] }}" />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="{{ url() }}" />
+
     <meta property="og:image" content="{{ url('/images/fb.png') }}" />
     <title>{{ $config['site_title'] }}</title>
     <link rel="stylesheet" href="/vendor/theme/{{ $config['bootstrap_theme'] }}/bootstrap.min.css">
@@ -19,9 +19,24 @@
     <!--[if lt IE 9]>
       <script src="//html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
     <![endif]-->
+
+
     <script src="/vendor/jquery-1.11.3.min.js"></script>
     <script src="/vendor/bootstrap.min.js"></script>
-    <!--
+
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"> </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/js/bootstrap.min.js"> </script> -->
+
+
+
+  </head>
+  <body>
+    @yield('content')
+  </body>
+</html>
+
+
+<!--
     　　　　　　　　　　　　　　　　　　ㄚ心代淰頑榨踣榨紳家畀近牛人
     　　　　　　　　　　　　　　　汁硫陡草艾上彳ㄚ　　　　卜ㄚ小尺泛哽爬合了
     　　　　　　　　　　　　人官胞自二　　　　　　　ㄚㄚ　　　　　　　ㄚ三竟富日
@@ -60,8 +75,3 @@
     　　　　　　　　　　　　　　　　　二平訌挷霸遽翻煽梳騙釀融禍消句下卜
     　　　　　　　　　　　　　　　　　　　　　　　　ㄚ卜卜
     -->
-  </head>
-  <body>
-    @yield('content')
-  </body>
-</html>
