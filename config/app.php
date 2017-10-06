@@ -205,6 +205,8 @@ return [
         'Configer'  => App\Http\Helpers\Configer::class,
         'Input'     => Illuminate\Support\Facades\Input::class,
 
+        // Laravel Debugbar
+        'Debugbar' => Barryvdh\Debugbar\Facade::class,
     ],
 
 ];

@@ -93,7 +93,7 @@
   <script src="/js/init.js" type="text/javascript"></script>
   <script>
     var alert_content_empty = "@lang('form.alert_content_empty')";
-    var alert_agree_license = "@lang('form.alert_agree_license')";
+    var alert_accept_license = "@lang('form.alert_accept_license')";
     var alert_human_verify = "@lang('form.alert_human_verify')";
     var processing = "@lang('form.processing')";
     var recaptcha_key = "{{ $config['recaptcha_key'] or 'NULL'}}";

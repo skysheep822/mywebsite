@@ -23,3 +23,11 @@ restart nginx and php7.0-fpm
     I delete this line in layout.blade.php
      <meta property="og:url" content="{{ url() }}" />
     and form works,but I don't know why.
+
+
+        "facebook/graph-sdk": "~5.0",
+        "guzzlehttp/guzzle": "~6.0",
+        "overtrue/laravel-pinyin": "~3.0"
+
+
+     "barryvdh/laravel-debugbar:2.2@dev"

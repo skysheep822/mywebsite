@@ -1,7 +1,7 @@
 <?php namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use Facebook;
+use Facebook\Facebook;
 
 class ActionController extends AdminController
 {

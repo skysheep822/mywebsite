@@ -1,6 +1,6 @@
 <?php namespace App\Http\Controllers;
 
-use Facebook;
+use Facebook\Facebook;
 use App\Http\Helpers;
 use Illuminate\Foundation\Bus\DispatchesCommands;
 use Illuminate\Foundation\Validation\ValidatesRequests;

@@ -1,6 +1,6 @@
 <?php namespace App\Http\Controllers;
 
-use App\Http\Extensions\utf8_chinese_str;
+use App\Http\Helpers;
 
 class PublisherController extends Controller
 {
