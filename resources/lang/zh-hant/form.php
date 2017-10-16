@@ -9,7 +9,7 @@ return [
     'img_text_post_mode'    => '文字圖發文',
     'show_preview_image'    => '點我顯示預覽圖片',
     'publish_license'       => '發文守則',
-    'accept_license'        => '我詳細閱讀上述發文守則並同意遵守',
+    'accept_license'        => '我願遵守上述發文守則，並同意本網站的<a href=privacy target="_blank">隱私權保護政策</a>',
     'human_verify'          => '人類認證',
     'submit'                => '送出匿名發文',
     'processing'            => '處理中 ...',

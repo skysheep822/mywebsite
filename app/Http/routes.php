@@ -19,6 +19,7 @@
 Route::get('/', 'HomeController@index');
 
 Route::get('/about', 'HomeController@about');
+Route::get('/privacy', 'HomeController@privacy');
 
 Route::post('/submit', 'PublisherController@submit');
 Route::post('/preview', 'ImageController@preview');

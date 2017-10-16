@@ -22,4 +22,8 @@ class HomeController extends Controller
         return view('about');
     }
 
+    public function privacy()
+    {
+        return view('privacy');
+    }
 }
