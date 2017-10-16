@@ -37,7 +37,9 @@
                           @lang('form.text_post_mode') (@lang('form.text_limit'): 1024)
                         </label>
                       </div>
-                      <div class="radio">
+
+                     {{--
+		      <div class="radio">
                         <label>
                           <input type="radio" name="mode" value="3">
                           @lang('form.img_text_post_mode') (@lang('form.text_limit'): 140)
@@ -47,6 +49,8 @@
                         <button type="button" id="preview-button" class="btn btn-default">@lang('form.show_preview_image')</button>
                         <div id="preview-image"></div>
                       </div>
+	 	      --}}
+
                     </div>
                   </div>
                 </div>
