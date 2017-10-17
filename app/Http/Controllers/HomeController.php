@@ -24,6 +24,8 @@ class HomeController extends Controller
 
     public function privacy()
     {
-        return view('privacy');
+        return view('privacy', [
+            'config' => \Configer::get(),
+        ]);
     }
 }
