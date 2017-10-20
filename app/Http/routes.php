@@ -25,6 +25,9 @@ Route::post('/submit', 'PublisherController@submit');
 Route::post('/preview', 'ImageController@preview');
 Route::get('/i/{key?}', 'ImageController@image');
 
+Route::get('/chatbot', 'ChatbotController@receive')->middleware('verifyfacebook');
+Route::post('/chatbot', 'ChatbotController@receivereq');
+
 Route::group(['prefix' => '/admin', 'middleware' => 'auth.very_basic'], function () {
 
     Route::get('/', 'Admin\AdminController@index');
