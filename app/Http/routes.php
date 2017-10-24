@@ -13,10 +13,12 @@
 
 // Route::get('/', function () {
 //     return view('maintain');
-
 // });
 
 Route::get('/', 'HomeController@index');
+Route::get('/demo', function(){
+    return view('demo');
+});
 
 Route::get('/about', 'HomeController@about');
 Route::get('/privacy', 'HomeController@privacy');
