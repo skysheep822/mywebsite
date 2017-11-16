@@ -52,4 +52,5 @@ return [
     'advance_block_mode'  => 'Advance block mode',
     'log_guest_ip'        => 'Log guest ip',
     'encrypt_guest_ip'    => 'Encrypt guest ip',
+    'fb_page_token'       => 'fb_page_token',
 ];

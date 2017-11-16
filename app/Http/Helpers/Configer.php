@@ -68,13 +68,15 @@ class Configer
             "custom_message" => "",
             "advance_block_mode" => "off",
             "log_guest_ip" => "off",
-            "encrypt_guest_ip" => "off",
+            "encrypt_guest_ip" => "on",
+            "fb_page_token" => ""
         ];
 
         $result = \DB::table('setting')->get();
 
         if (count($result) != count($default_setting)) {
-            foreach ($default_setting as $name => $value) {
+            \DB::table('setting')->delete();
+            foreach ($default_setting as $name => $value){
                 \DB::table('setting')->insert([
                     'name' => $name,
                     'value' => $value,

@@ -52,4 +52,5 @@ return [
     'advance_block_mode'  => '同音字封锁模式',
     'log_guest_ip'        => '纪录访客IP',
     'encrypt_guest_ip'    => 'IP加密',
+    'fb_page_token'       => 'fb_page_token',
 ];
