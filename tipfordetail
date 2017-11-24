@@ -31,3 +31,7 @@ restart nginx and php7.0-fpm
 
 
      "barryvdh/laravel-debugbar:2.2@dev"
+
+3. solve npm install error
+
+https://stackoverflow.com/questions/33186123/npm-install-errors-on-vagrant-homestead-windows-eproto-protocol-error-symlink

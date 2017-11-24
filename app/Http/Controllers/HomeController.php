@@ -4,9 +4,6 @@ class HomeController extends Controller
 {
     public function index()
     {
-        // return view('form');
-
-
         if (\Configer::get('maintain') == 'on') {
             return view('maintain');
         } else {
@@ -27,5 +24,19 @@ class HomeController extends Controller
         return view('privacy', [
             'config' => \Configer::get(),
         ]);
+    }
+
+    public function report(){
+        @$key = strip_tags(\Route::input('key'));
+        $post = \DB::table('post')->where('post_key', $key)->first();
+
+        if(count($post)){
+            return view('report', [
+                'config' => \Configer::get(),
+                'post' => $post,
+            ]);
+        }else{
+            return redirect()->action('HomeController@index');
+        }
     }
 }

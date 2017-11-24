@@ -39,9 +39,8 @@ $(function () {
     }
   });
   return $('body').delegate('#submit', 'click', function () {
-    var message, mode;
+    var message;
     message = $('#message').val();
-    mode = $('[name="mode"]:checked').val();
     if (message.length > max_length) {
       message = message.substring(0, max_length);
     }
@@ -65,19 +64,15 @@ $(function () {
       cache: false,
       data: {
         message: message,
-        mode: mode,
+        postkey: postkey,
         recaptcha: $('[name="g-recaptcha-response"]').val()
       },
-      url: '/submit',
+      url: '/report',
       error: function (r) {
         return console.log(r);
       },
       success: function (r) {
-        if (r.state === 'success') {
-          return headerTo(r.redirect);
-        } else {
-          return headerTo('/');
-        }
+        alert(r.message);
       }
     });
   });

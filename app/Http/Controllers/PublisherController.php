@@ -115,7 +115,7 @@ class PublisherController extends Controller
                 if (\DB::table('post')->insert($post)) {
                     $response = [
                         'state' => 'success',
-                        'redirct' => '/' . $post_key,
+                        'redirect' => '/' . $post_key,
                     ];
                 }
             }
@@ -123,6 +123,71 @@ class PublisherController extends Controller
 
         echo json_encode($response);
     }
+
+    public function report(){
+        $post_message = \Input::get('message');
+        $post_key = \Input::get('postkey');
+        $recaptcha = \Input::get('recaptcha');
+        $response = ['state' => 'deny'];
+
+        $recaptcha_check = file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret=' . \Configer::get('recaptcha_secret') . '&response=' . $recaptcha, false, stream_context_create(['ssl' => ['verify_peer' => false, 'verify_peer_name' => false]]));
+        $recaptcha_check = json_decode($recaptcha_check, true);
+
+        if (@$recaptcha_check['success'])
+        {
+            if (mb_strlen($post_message, 'utf-8') > 1024)
+            {
+                $post_message = mb_substr($post_message, 0, 1024, 'utf-8');
+            }
+
+            $post = \DB::table('post')->where('post_key', $post_key)->where('post_state', 1)->first();
+            if (!count($check))
+            {
+                $response = [
+                    'state' => 'failed',
+                    'message' => 'this post is not exist in database',
+                ];
+            }
+            else
+            {
+                $post_id = $post->id;
+                $insert_time = time();
+                $post_user_ip = $this->getUserIP();
+                $post_state = 0;
+                $check = \DB::table('report')->where('ip', $post_user_ip)->where('post_state', 1)->where('insert_time', '<', $insert_time-600)->first();
+                if (count($check))
+                {
+                    $post_state = 5;
+                    $response = [
+                        'state' => 'failed',
+                        'message' => 'Sorry, you can only report once in 10 minute.',
+                    ];
+                }
+
+                $report = [
+                    'post_id' => $post_id,
+                    'post_key' => $post_key,
+                    'post_state' => $post_state,
+                    'post_message' => $post_message,
+                    'post_user_ip' => $post_user_ip,
+                    'post_auth' => '0',
+                    'insert_time' => $insert_time,
+                ];
+
+                if (\DB::table('report')->insert($report)) {
+                    $check = $this->unpublishPostFromFacebook($post);
+                    if ($check['state'] == 'success'){
+                        $response = [
+                        'state' => 'success',
+                        'message' => 'the post has been reported',
+                        ];
+                    }
+                }
+            }
+        }
+        echo json_encode($response);
+    }
+
 
     public function check()
     {

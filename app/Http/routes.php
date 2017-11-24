@@ -22,8 +22,10 @@ Route::get('/demo', function(){
 
 Route::get('/about', 'HomeController@about');
 Route::get('/privacy', 'HomeController@privacy');
+Route::get('/report/{key?}', 'HomeController@report');
 
 Route::post('/submit', 'PublisherController@submit');
+Route::post('/report', 'PublisherController@report');
 Route::post('/preview', 'ImageController@preview');
 Route::get('/i/{key?}', 'ImageController@image');
 
